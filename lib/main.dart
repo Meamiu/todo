@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:todo/tuto.dart';
+
+import 'AddPage.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,6 +21,8 @@ class MyApp extends StatelessWidget {
 class HomePage extends StatelessWidget {
   get errorBuilder => null;
 
+  get floatingActionButton => null;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +35,7 @@ class HomePage extends StatelessWidget {
       Column(children: [
         Expanded(child:
         GridView.count(
-          crossAxisCount:3, // Number of columns in the grid
+          crossAxisCount:2, // Number of columns in the grid
           children: <Widget>[
             IconButton(
 
@@ -45,7 +50,7 @@ class HomePage extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Page1()),
+                  MaterialPageRoute(builder: (context) => TodoListScreen()),
                 );
               },
             ),
@@ -59,7 +64,7 @@ class HomePage extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Page2()),
+                  MaterialPageRoute(builder: (context) => TodoListScreen()),
                 );
               },
             ),
@@ -125,8 +130,10 @@ class HomePage extends StatelessWidget {
 
           ],
         ),
+
         ),
-        ElevatedButton(
+
+        /*ElevatedButton(
           onPressed: () {
 
           Navigator.push(
@@ -136,9 +143,14 @@ class HomePage extends StatelessWidget {
 
           );
         }, child: Text('Add item',style: TextStyle(fontSize: 20 ),),style: ElevatedButton.styleFrom(minimumSize: Size(200,100)),
-      )
+      )*/
+
+
     ]
     ),
+      floatingActionButton: ElevatedButton.icon(onPressed:() {
+
+      },label:Text("ADD"),icon:Icon(Icons.add)),
     );
   }
 }
@@ -244,7 +256,7 @@ class Page6 extends StatelessWidget {
       ),);
   }
 }
-class AddPage extends StatelessWidget {
+/*class AddPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
@@ -256,4 +268,4 @@ class AddPage extends StatelessWidget {
         child: Text(''),
       ),);
   }
-}
+}*/
